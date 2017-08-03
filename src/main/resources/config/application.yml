@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: seed-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connection-test-query: SELECT 1
+      maximum-pool-size: 20
+      minimum-idle: 2
+      max-lifetime: 60000
+    primary:
+      jdbc-url: jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true
+      username: root
+      password: root
+    second:
+      jdbc-url: jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true
+      username: root
+      password: root
+  profiles:
+    active: dev
+  jackson:
+      default-property-inclusion: non_null
+      property-naming-strategy: SNAKE_CASE
+
+logging:
+  config: classpath:logback.xml
+
+mybatis:
+  type-aliases-package: com.betterlxc.mvc.domain
+  mapper-locations: classpath:mapper/*.xml
+
+mapper:
+  mappers: com.betterlxc.utils.BaseMapper
+  not-empty: false
+  identity: MYSQL
