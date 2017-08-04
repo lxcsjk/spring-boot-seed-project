@@ -19,9 +19,6 @@ spring:
       password: root
   profiles:
     active: dev
-  jackson:
-      default-property-inclusion: non_null
-      property-naming-strategy: SNAKE_CASE
 
 logging:
   config: classpath:logback.xml
