@@ -25,6 +25,6 @@ public class GlobalControllerExceptionHandler {
     log.warn("", e);
 
     return ImmutableMap.of("msg",
-            String.valueOf(Throwables.getRootCause(e).getMessage()));
+        String.valueOf(Throwables.getRootCause(e).getMessage()));
   }
 }

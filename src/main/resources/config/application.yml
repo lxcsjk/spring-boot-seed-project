@@ -10,11 +10,11 @@ spring:
       minimum-idle: 2
       max-lifetime: 60000
     primary:
-      jdbc-url: jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true
+      jdbc-url: jdbc:mysql://localhost:3306/test1?characterEncoding=UTF-8&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true
       username: root
       password: root
     second:
-      jdbc-url: jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true
+      jdbc-url: jdbc:mysql://localhost:3306/test2?characterEncoding=UTF-8&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true
       username: root
       password: root
   profiles:

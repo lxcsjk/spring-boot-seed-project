@@ -7,8 +7,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.zaxxer.hikari.HikariDataSource;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
+import org.flywaydb.core.Flyway;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -81,5 +84,19 @@ public class DefaultConfiguration {
     bean.setFilter(new LogFilter());
     bean.setOrder(Ordered.LOWEST_PRECEDENCE);
     return bean;
+  }
+
+  @Bean(initMethod = "migrate", name = "primaryFlyway")
+  public Flyway primaryFlyway(@Qualifier("primaryDataSource") HikariDataSource hikariDataSource) {
+    Flyway primaryFlyway = new Flyway();
+    primaryFlyway.setDataSource(hikariDataSource);
+    return primaryFlyway;
+  }
+
+  @Bean(initMethod = "migrate", name = "secondFlyway")
+  public Flyway secondFlyway(@Qualifier("secondDataSource") HikariDataSource hikariDataSource) {
+    Flyway secondFlyway = new Flyway();
+    secondFlyway.setDataSource(hikariDataSource);
+    return secondFlyway;
   }
 }

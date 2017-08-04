@@ -65,6 +65,8 @@ dependencies {
     compile group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: '1.1.2'
     // mybatis 通用Mapper 像jpa一样好用
     compile group: 'tk.mybatis', name: 'mapper-spring-boot-starter', version: '1.1.2'
+    // 数据库结构同步
+    compile group: 'org.flywaydb', name: 'flyway-core', version: '4.2.0'
 
     // HttpClient retrofit2
     compile group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.3.0'
